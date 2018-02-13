@@ -13,6 +13,7 @@ public class playerControl : MonoBehaviour {
 	public float cameraHeight;
 	public float gravity;
 
+	bool secondJumpAvailable;
 	private bool thirdperson = false;
 	public float camdistz =0f;//-5
 	public float camdisty = 0f; //1.5
@@ -41,11 +42,19 @@ public class playerControl : MonoBehaviour {
 		if (con.isGrounded) {
 			if (Input.GetKey ("space")) {
 				direction.y = jumpSpeed;
-			} else {
+				secondJumpAvailable = true;
+				}
+				else {
 				direction.y = 0;
 			}
+
 		}
 
+		if (Input.GetKey ("space") && secondJumpAvailable && !con.isGrounded) {
+			direction.y = 0;
+			direction.y = jumpSpeed;
+			secondJumpAvailable = false;
+		}
 
 		con.Move (direction * Time.deltaTime);
 		direction.y -= gravity *Time.deltaTime;
