@@ -20,8 +20,9 @@ public class playerControl : MonoBehaviour
     {
         con = GetComponent<CharacterController>();
         cam = GetComponentInChildren<Camera>();
-        cam.transform.localPosition = new Vector3(0, cameraHeight, 0);
-        cam.transform.rotation = Quaternion.LookRotation(transform.forward, transform.up);
+//just use Unity settings, dont establisg anything here
+//        cam.transform.localPosition = new Vector3(0, cameraHeight, 0);
+//        cam.transform.rotation = Quaternion.LookRotation(transform.forward, transform.up);
 	}
 	
 	// Update is called once per frame
