@@ -46,17 +46,17 @@ public class playerControl : MonoBehaviour {
 		if (con.isGrounded) {
 			if (Input.GetKey ("space")) {
 				direction.y = jumpSpeed;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 				doublej++;
 				if (Input.GetKey ("space") && doublej >= 1f) {
 					direction.y += jumpSpeed;
 				}
-			} else {
-=======
+			} else if(!secondJumpAvailable){
+//=======
 				secondJumpAvailable = true;
 				}
 				else {
->>>>>>> 3afc1dd73be7a9c19155a5352461268229d2129e
+//>>>>>>> 3afc1dd73be7a9c19155a5352461268229d2129e
 				direction.y = 0;
 			}
 
