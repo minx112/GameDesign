@@ -12,6 +12,7 @@ public class playerControl : MonoBehaviour {
 	public float sensitivity;
 	public float cameraHeight;
 	public float gravity;
+	public int doublej;
 
 	private bool thirdperson = false;
 	public float camdistz =0f;//-5
@@ -38,9 +39,16 @@ public class playerControl : MonoBehaviour {
 		//move player
 		direction.x = moveInput.x;
 		direction.z = moveInput.z;
+
+		doublej = 0;
+
 		if (con.isGrounded) {
 			if (Input.GetKey ("space")) {
 				direction.y = jumpSpeed;
+				doublej++;
+				if (Input.GetKey ("space") && doublej >= 1f) {
+					direction.y += jumpSpeed;
+				}
 			} else {
 				direction.y = 0;
 			}
