@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -599,7 +599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1445384099}
   enemy: {fileID: 1915440427201450, guid: 841e3b9c4797442d6a75dee0f1709a97, type: 2}
-  spawnTime: 3
+  spawnTime: 2
   spawnPoints:
   - {fileID: 1168825845}
 --- !u!4 &437846239
@@ -959,7 +959,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1103947661
+  randomSeed: 1249211658
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4555,7 +4555,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 652798339}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5054,7 +5054,7 @@ Transform:
   m_GameObject: {fileID: 1445384092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children:
   - {fileID: 235853088}
   - {fileID: 496834214}
@@ -5073,7 +5073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec45203ae7a1a54c9d02c355f983833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 8
 --- !u!82 &1445384096
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5193,7 +5193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544f2064df03e95419b4a5147c506b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 150
   currentHealth: 0
   healthSlider: {fileID: 1369136252}
   damageImage: {fileID: 1970146589}
@@ -5566,7 +5566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1445384099}
-  restartDelay: 5
+  restartDelay: 3
 --- !u!1001 &2049294373
 Prefab:
   m_ObjectHideFlags: 0
