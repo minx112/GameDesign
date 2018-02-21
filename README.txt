@@ -24,4 +24,8 @@ Assignment 3 - Proj3
 ================================================================================
 Assignment 4
 	2DCharacterController - 2D terrain and character controller
+		- expanded play area
+		- added double jumping
+		- fixed player sticking to walls with frictionless physics material
+		
 	terrain4 - First person with 3D terrain
