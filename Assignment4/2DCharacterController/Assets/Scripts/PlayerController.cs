@@ -57,5 +57,10 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
         }
 
+        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+
     }
 }
