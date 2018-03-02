@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
     private bool grounded;
 
+	private Animator animator;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -23,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
         //reset double jumps
         doubleJumped = false;
+
+		animator = GetComponent<Animator>();
 	}
 
     private void FixedUpdate()
@@ -48,19 +52,25 @@ public class PlayerController : MonoBehaviour
         //move right
         if (Input.GetKey(KeyCode.D))
         {
+			animator.SetTrigger ("isWalking");
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
         }
 
         //move left
         if (Input.GetKey(KeyCode.A))
         {
+			animator.SetTrigger ("isWalking");
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
         }
 
         if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
+			animator.ResetTrigger ("isWalking");
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
+		if (Input.GetKeyUp (KeyCode.A) || Input.GetKeyUp (KeyCode.D)) {
+			animator.ResetTrigger ("isWalking");
+		}
     }
 }

@@ -6,7 +6,7 @@ public class enemyController : MonoBehaviour {
 	
 	private Rigidbody2D rb;
 
-	Boolean aggrod = false;
+	bool aggrod = false;
 	public float moveSpeed;
 
 	// Use this for initialization
