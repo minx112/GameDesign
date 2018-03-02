@@ -29,3 +29,13 @@ Assignment 4
 		- fixed player sticking to walls with frictionless physics material
 		
 	terrain4 - First person with 3D terrain
+
+================================================================================
+Assignment 5
+	2DCharacterController - Added animations and testing enemy AI
+
+	AIskeleton - AI Skeleton Tutorial
+
+================================================================================
+Assignment 6
+	Scorpion.blend - scorpion blender
