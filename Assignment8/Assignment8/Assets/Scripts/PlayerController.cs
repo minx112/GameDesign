@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
     private bool grounded;
 
+    public bool canMove;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -34,6 +36,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
+        if (!canMove)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            return;
+        }
+
         // jumping
         if (grounded) doubleJumped = false;
 
