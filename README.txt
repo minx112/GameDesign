@@ -39,3 +39,13 @@ Assignment 5
 ================================================================================
 Assignment 6
 	Scorpion.blend - scorpion blender
+	
+================================================================================
+Assignment 8
+	Controls:
+	Enter 	- Confirm/Next dialogue box
+	E	- Activate/Talk to NPC
+	Esc	- Pause/Unpause
+	A	- Move left
+	D	- Move right
+	Space	- Jump
