@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
     private bool grounded;
 
+	SpriteRenderer m_SpriteRenderer;
+
+
 	// Use this for initialization
 	void Start ()
     {
@@ -23,6 +26,9 @@ public class PlayerController : MonoBehaviour
 
         //reset double jumps
         doubleJumped = false;
+
+		//Fetch the SpriteRenderer from the GameObject
+		m_SpriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
     private void FixedUpdate()
@@ -62,5 +68,12 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
+		if (Input.GetKey (KeyCode.E)) {
+			//Set the SpriteRenderer to the Color defined by the Sliders
+			m_SpriteRenderer.color = new Color(0, 0, 100);
+
+			m_SpriteRenderer.color = new Color(51, 152, 0);
+
+		}
     }
 }

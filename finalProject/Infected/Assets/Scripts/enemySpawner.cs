@@ -5,7 +5,6 @@ using UnityEngine;
 public class enemySpawner : MonoBehaviour {
 
 	public GameObject enemy;
-	float randX;
 	Vector2 whereToSpawn;
 	public float spawnRate = 2f;
 	float nextSpawn = 0.0f;
@@ -22,8 +21,8 @@ public class enemySpawner : MonoBehaviour {
 
 		if (Time.time > nextSpawn) {
 			nextSpawn = Time.time + spawnRate;
-			randX = Random.Range (-8.4f, 8.4f);
-			whereToSpawn = new Vector2 (randX+player.position.x, transform.position.y);
+
+			whereToSpawn = new Vector2 (25f+player.position.x, transform.position.y);
 			Instantiate (enemy, whereToSpawn, Quaternion.identity);
 		}
 	}
