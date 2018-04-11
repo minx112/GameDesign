@@ -15,6 +15,16 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
     private bool grounded;
 
+	public GameObject hitCheck;
+	public float hitCheckRadius;
+	public LayerMask whatIsEnemy;
+
+	public float attackDelay;
+	public float hitDelay;
+	private float attackCounter;
+	private float hitCounter;
+	bool attack;
+
 	SpriteRenderer m_SpriteRenderer;
 
 
@@ -29,6 +39,9 @@ public class PlayerController : MonoBehaviour
 
 		//Fetch the SpriteRenderer from the GameObject
 		m_SpriteRenderer = GetComponent<SpriteRenderer>();
+
+		attack = false;
+		hitCheck.SetActive (false);
 	}
 
     private void FixedUpdate()
@@ -68,12 +81,36 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
-		if (Input.GetKey (KeyCode.E)) {
-			//Set the SpriteRenderer to the Color defined by the Sliders
-			m_SpriteRenderer.color = new Color(0, 0, 100);
-
-			m_SpriteRenderer.color = new Color(51, 152, 0);
-
+		if (!attack && Input.GetKey (KeyCode.E)) 
+		{
+			attackFunction();
 		}
+/*
+		if (attack && attackCounter > 0) 
+		{
+			attackCounter -= Time.deltaTime;
+		}
+
+		if (attack && attackCounter < 0)
+		{
+			attack = false;
+			m_SpriteRenderer.color = new Color (51, 152, 0);
+		}
+		*/
+
     }
+
+	private IEnumerator attackFunction()
+	{
+		attack = true;
+		hitCheck.SetActive (true);
+		//Set the SpriteRenderer to the Color defined by the Sliders
+		m_SpriteRenderer.color = new Color (0, 0, 100);
+		attackCounter = attackDelay;
+		hitCounter = hitDelay;
+
+		yield return new WaitForSeconds (hitDelay);
+		m_SpriteRenderer.color = new Color (51, 152, 0);
+		hitCheck.SetActive (false);
+	}
 }

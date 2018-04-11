@@ -10,7 +10,8 @@ public class enemyAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		
+		player = GameObject.Find("Player");
 		rb = GetComponent<Rigidbody2D>();
 		
 	}
@@ -18,8 +19,10 @@ public class enemyAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(player.transform.position.x - gameObject.transform.position.x > 0)
-			rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+		if (player.transform.position.x - gameObject.transform.position.x > 0) {
+			Debug.Log (player.transform.position.x - gameObject.transform.position.x);
+			rb.velocity = new Vector2 (moveSpeed, rb.velocity.y);
+		}
 		else
 			rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
 		
