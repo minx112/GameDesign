@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 	private float attackCounter;
 	private float hitCounter;
 	bool attack;
+	int health;
 
 	SpriteRenderer m_SpriteRenderer;
 
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+		health = 3;
+
         //get rigidbody component
         rb = GetComponent<Rigidbody2D>();
 
