@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed;
     public float jumpHeight;
+    private double jumpDelay;
+    private double jumpDelayTime = 0.1;
     private bool doubleJumped;
 
     public Transform groundCheck;
@@ -28,11 +30,28 @@ public class PlayerController : MonoBehaviour
 
 	SpriteRenderer m_SpriteRenderer;
 
+    // Animation
+    private Animator anim;
 
-	// Use this for initialization
-	void Start ()
+    // Control Keys
+    [HideInInspector] public bool keyA;
+    [HideInInspector] public bool keyD;
+    [HideInInspector] public bool keyE;
+    [HideInInspector] public bool keyHoldE;
+    [HideInInspector] public bool keyR;
+    [HideInInspector] public bool keyHoldR;
+    [HideInInspector] public bool keyQ;
+    [HideInInspector] public bool keyHoldQ;
+    [HideInInspector] public bool keySpace;
+
+    // Use this for initialization
+    void Start ()
     {
-		health = 3;
+        //get animator component
+        anim = GetComponent<Animator>();
+
+        //set health to max
+        health = 3;
 
         //get rigidbody component
         rb = GetComponent<Rigidbody2D>();
@@ -56,35 +75,68 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        // jumping
-        if (grounded) doubleJumped = false;
+        // get input
+        keyA = Input.GetKey(KeyCode.A);
+        keyD = Input.GetKey(KeyCode.D);
+        keyE = Input.GetKeyDown(KeyCode.E);
+        keyHoldE = Input.GetKey(KeyCode.E);
+        keyR = Input.GetKeyDown(KeyCode.R);
+        keyHoldR = Input.GetKey(KeyCode.R);
+        keyQ = Input.GetKeyDown(KeyCode.Q);
+        keyHoldQ = Input.GetKey(KeyCode.Q);
+        keySpace = Input.GetKeyDown(KeyCode.Space);
 
-		if (Input.GetKeyDown(KeyCode.Space) && (grounded || !doubleJumped))
+        // set variables for animator
+        anim.SetBool("Grounded", grounded);
+
+        // jumpDelay
+        if (jumpDelay > 0)
         {
-            if (!grounded && !doubleJumped) doubleJumped = true;
+            jumpDelay -= Time.deltaTime;
+            if (jumpDelay <= 0) jumpDelay = 0;
+        }
+        
+        // if grounded
+        if (grounded)
+        {
+            // doubleJumped = false;
+            // anim.SetBool("Double Jumped", false);
+            if (jumpDelay <= 0) anim.SetBool("Jumped", false);
+        }
+
+        // jumping
+        if (keySpace && grounded)
+        {
+            // if (!grounded && !doubleJumped)
+            // {
+            //     doubleJumped = true;
+            //     anim.SetBool("Double Jumped", true);
+            // }
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+            anim.SetBool("Jumped", true);
+            jumpDelay = jumpDelayTime;
         }
 
         if (rb.velocity.y < -jumpHeight*2) rb.velocity = new Vector2(rb.velocity.x, -jumpHeight*2);
 
-        //move right
-        if (Input.GetKey(KeyCode.D))
+        // move right
+        if (keyD)
         {
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
         }
 
-        //move left
-        if (Input.GetKey(KeyCode.A))
+        // move left
+        if (keyA)
         {
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
         }
 
-        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        if (!keyA && !keyD)
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
-		if (!attack && Input.GetKey (KeyCode.E)) 
+		if (!attack && keyE)
 		{
 			attackFunction();
 		}
@@ -100,6 +152,20 @@ public class PlayerController : MonoBehaviour
 			m_SpriteRenderer.color = new Color (51, 152, 0);
 		}
 		*/
+
+        // set float 'Speed' for animator
+        anim.SetFloat("Horizontal Speed", Mathf.Abs(rb.velocity.x));
+        anim.SetFloat("Vertical Speed", rb.velocity.y);
+
+        // animation flipping
+        if (keyD || (rb.velocity.x > 0))
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (keyA || (rb.velocity.x < 0))
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
 
     }
 

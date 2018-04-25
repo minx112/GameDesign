@@ -20,7 +20,7 @@ public class enemyAI : MonoBehaviour {
 	void Update () {
 
 		if (player.transform.position.x - gameObject.transform.position.x > 0) {
-			Debug.Log (player.transform.position.x - gameObject.transform.position.x);
+			// Debug.Log (player.transform.position.x - gameObject.transform.position.x);
 			rb.velocity = new Vector2 (moveSpeed, rb.velocity.y);
 		}
 		else
