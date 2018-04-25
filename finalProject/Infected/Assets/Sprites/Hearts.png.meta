@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 254a6b9259b7444c4a15a4e77a17ea48
-timeCreated: 1524017540
+guid: 1b22fa95a4f454649888ecd13848ee33
+timeCreated: 1524619267
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -97,10 +97,10 @@ TextureImporter:
       name: Hearts_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 46
-        width: 50
-        height: 15
+        x: 2
+        y: 47
+        width: 49
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,9 +112,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 31
-        width: 49
-        height: 15
+        y: 32
+        width: 48
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,7 +128,7 @@ TextureImporter:
         x: 2
         y: 17
         width: 50
-        height: 15
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,9 +140,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 1
-        width: 50
-        height: 15
+        y: 2
+        width: 49
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
