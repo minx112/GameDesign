@@ -28,7 +28,11 @@ public class PlayerController : MonoBehaviour
 	bool attack;
 	int health;
 
-	SpriteRenderer m_SpriteRenderer;
+    public float raycastMaxDistance = 2f;
+    private const int ENEMY_LAYER = 10;
+    private float originOffset = 2f;
+
+    SpriteRenderer m_SpriteRenderer;
 
     // Animation
     private Animator anim;
@@ -70,6 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         //ground check using transform positions
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+        RaycastCheckUpdate();
     }
 
     // Update is called once per frame
@@ -138,7 +143,7 @@ public class PlayerController : MonoBehaviour
 
 		if (!attack && keyE)
 		{
-			attackFunction();
+			//attack animation
 		}
 /*
 		if (attack && attackCounter > 0) 
@@ -169,17 +174,50 @@ public class PlayerController : MonoBehaviour
 
     }
 
-	private IEnumerator attackFunction()
-	{
-		attack = true;
-		hitCheck.SetActive (true);
-		//Set the SpriteRenderer to the Color defined by the Sliders
-		m_SpriteRenderer.color = new Color (0, 0, 100);
-		attackCounter = attackDelay;
-		hitCounter = hitDelay;
+    public RaycastHit2D CheckRaycast(Vector2 direction)
+    {
+        float directionOriginOffset = originOffset * (direction.x > 0 ? 1 : -1);
 
-		yield return new WaitForSeconds (hitDelay);
-		m_SpriteRenderer.color = new Color (51, 152, 0);
-		hitCheck.SetActive (false);
-	}
+        Vector2 startingPosition = new Vector2(transform.position.x + directionOriginOffset, transform.position.y+1);
+
+        return Physics2D.Raycast(startingPosition, direction, raycastMaxDistance, ~ENEMY_LAYER);
+    }
+
+    private bool RaycastCheckUpdate()
+    {
+        // Raycast button pressed
+        if (keyE)
+        {
+            // Launch a raycast in the forward direction from where the player is facing.
+            Vector2 direction = new Vector2(1, 0);
+
+            // If facing left, negative direction
+            if (keyA || (rb.velocity.x < 0))
+                direction *= -1;
+
+            // First target hit
+            RaycastHit2D hit = CheckRaycast(direction);
+
+            if (hit.collider)
+            {
+                Debug.Log("Hit the collidable object " + hit.collider.name);
+
+                Debug.DrawRay(transform.position, hit.point, Color.red, 0.5f);
+
+                hit.collider.gameObject.GetComponent<enemyAI>().takeDamage(1, (rb.velocity.x < 0));
+            }
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void takeDamage(int damage)
+    {
+        health -= damage;
+        Debug.Log("Player health: " + health);
+    }
 }

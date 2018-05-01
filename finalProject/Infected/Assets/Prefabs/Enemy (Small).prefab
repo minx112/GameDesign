@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 70320351539048056}
   - component: {fileID: 50373476974531096}
   - component: {fileID: 114249203476731536}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy (Small)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1979454377893292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.98, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -89,8 +89,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd6c4300b7fecb49b107e07a6eb22bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 2
   player: {fileID: 4421864409643804, guid: 5dc2b096f6c5acf48a83cd3008c4e68f, type: 2}
-  moveSpeed: 2.5
+  moveSpeed: 7.5
+  raycastMaxDistance: 1
 --- !u!212 &212526753427108620
 SpriteRenderer:
   m_ObjectHideFlags: 1
