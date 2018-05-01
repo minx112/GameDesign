@@ -7,7 +7,7 @@ public class ProgressBar : MonoBehaviour {
 
 	public Slider progress;
 	Stopwatch watch;
-	private int time;
+	private long time;
 	// Use this for initialization
 	//becoming insane 7:20 - 440 secs
 	//1.000   440
@@ -21,8 +21,9 @@ public class ProgressBar : MonoBehaviour {
 	void Update () {
 		
 		time = watch.ElapsedMilliseconds;
-		if(time%1000 == 0) {
-			progress.value += .07;
+		if (time % 1000 == 0) {
+			progress.value += .07f;
+		}
 	
 	}
 }

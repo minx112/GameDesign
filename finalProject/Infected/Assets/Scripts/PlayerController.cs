@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 	private float attackCounter;
 	private float hitCounter;
 	bool attack;
-	int health;
+	public int health;
 
 	SpriteRenderer m_SpriteRenderer;
 
