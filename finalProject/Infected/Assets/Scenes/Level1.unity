@@ -2069,6 +2069,7 @@ MonoBehaviour:
     m_Bits: 0
   attackDelay: 1
   hitDelay: 0
+  health: 0
   raycastMaxDistance: 10
   keyA: 0
   keyD: 0
@@ -3402,7 +3403,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -303, y: 150}
+  m_AnchoredPosition: {x: -235.36417, y: 239.6568}
   m_SizeDelta: {x: 155.8, y: 101.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1848917624
