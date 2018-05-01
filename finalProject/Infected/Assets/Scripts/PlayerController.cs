@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 	private float attackCounter;
 	private float hitCounter;
 	bool attack;
-	int health;
+	public int health;
 
     public float raycastMaxDistance = 2f;
     private const int ENEMY_LAYER = 10;
