@@ -15,6 +15,6 @@ public class HUD : MonoBehaviour {
 	}
 	void Update() {
 		HeartUI.sprite = HeartsSprites[player.health];
-
+		Debug.Log("Player Health HUD" +  player.health); // player.health not pointing to it
 	}
 }
