@@ -29,6 +29,6 @@ public class ProgressBar : MonoBehaviour {
 	
 	}
 	void Prog() {
-		progress.value += .007f;
+		progress.value += .0022727f;
 	}
 }
