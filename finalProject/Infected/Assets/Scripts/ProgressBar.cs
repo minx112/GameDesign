@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class ProgressBar : MonoBehaviour {
 
 	public Slider progress;
 	Stopwatch watch;
 	private long time;
+	private int counter = 0;
 	// Use this for initialization
 	//becoming insane 7:20 - 440 secs
 	//1.000   440
@@ -30,5 +33,10 @@ public class ProgressBar : MonoBehaviour {
 	}
 	void Prog() {
 		progress.value += .0022727f;
+		counter++;
+		if (counter >= 440) {
+			Application.LoadLevel(SceneManager.GetActiveScene ().buildIndex +1);
+
+		}
 	}
 }
