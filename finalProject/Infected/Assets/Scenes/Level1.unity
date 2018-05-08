@@ -993,6 +993,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b1f1bb16b7643c49836237933273be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yellow: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  magenta: {r: 1, g: 0, b: 1, a: 1}
+  blue: {r: 0, g: 0, b: 1, a: 1}
+  cyan: {r: 0, g: 1, b: 1, a: 1}
+  red: {r: 1, g: 0, b: 0, a: 1}
+  green: {r: 0, g: 1, b: 0, a: 1}
+  Fill: {fileID: 1108666532}
+  cb:
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
   progress: {fileID: 445315302}
 --- !u!1 &330584578
 GameObject:
