@@ -15,7 +15,7 @@ public class ProgressBar : MonoBehaviour {
 	public Image Fill;
 	public Slider progress;
 	private int counter = 0;
-	//becoming insane 7:20 - 440 secs
+	//becoming insane 7:20 - 440 secs bpm 145
 	void Start () {
 		progress.value = 0;
 		InvokeRepeating("Prog", 0.0f, 1.0f);
@@ -23,11 +23,44 @@ public class ProgressBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (counter >= 5) {
-			Fill.color = Color.Lerp (yellow, blue, Mathf.PingPong (Time.time, 1));
-		} else if (counter >= 10) { 
+		if (counter >= 26 && counter <= 66) {//26
+			Fill.color = Color.Lerp (red, blue, Mathf.PingPong (Time.time, 1.2083f));
+		} else if (counter >= 66 && counter <= 105) { //66
+			Fill.color = Color.Lerp (blue, yellow, Mathf.PingPong (Time.time, 1.2083f));
 
 		}
+		else if (counter >= 105 && counter <= 132) { //105
+			Fill.color = red;
+		}
+		else if (counter >= 132 && counter <= 202) { //132
+			Fill.color = Color.Lerp (red, cyan, Mathf.PingPong (Time.time, 1.2083f));
+
+		}
+		else if (counter >= 202 && counter <= 228) { //202
+			Fill.color = red;
+
+		}
+		else if (counter >= 228 && counter <= 241) { 
+			Fill.color = Color.Lerp (red, yellow, Mathf.PingPong (Time.time, 1.2083f));
+
+		}
+		else if (counter >= 241 && counter <= 332) { 
+			Fill.color = Color.Lerp (yellow, magenta, Mathf.PingPong (Time.time, 1.2083f));
+
+		}
+		else if (counter >= 332 && counter <= 360) { 
+				Fill.color = red;
+
+		}
+		else if (counter >= 360 && counter <= 414) { 
+			Fill.color = Color.Lerp (red, blue, Mathf.PingPong (Time.time, 1.2083f));
+
+		}
+		 else if (counter >= 414) { 
+				Fill.color = red;
+
+		}
+
 	}
 	void Prog() {
 		progress.value += .0022727f;
