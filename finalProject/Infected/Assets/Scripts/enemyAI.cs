@@ -58,15 +58,15 @@ public class enemyAI : MonoBehaviour {
     {
         float directionOriginOffset = originOffset * (direction.x > 0 ? 1 : -1);
 
-        Vector2 startingPosition = new Vector2(transform.position.x + directionOriginOffset, transform.position.y + 1);
+        Vector2 startingPosition = new Vector2(transform.position.x + directionOriginOffset, transform.position.y + 0);
 
         return Physics2D.Raycast(startingPosition, direction, raycastMaxDistance, ~PLAYER_LAYER);
     }
 
     private bool RaycastCheckUpdate()
     {
-        // Raycast button pressed
-        if (player.transform.position.x - gameObject.transform.position.x < 0 && player.transform.position.x - gameObject.transform.position.x > -1)
+        // Raycast trigger
+		if (player.transform.position.x - gameObject.transform.position.x < 0 && player.transform.position.x - gameObject.transform.position.x > -2)
         {
             // Launch a raycast in the forward direction from where the player is facing.
             Vector2 direction = new Vector2(-1, 0);
@@ -85,7 +85,7 @@ public class enemyAI : MonoBehaviour {
 
             return true;
         }
-        else if (player.transform.position.x - gameObject.transform.position.x > 0 && player.transform.position.x - gameObject.transform.position.x < 1)
+        else if (player.transform.position.x - gameObject.transform.position.x > 0 && player.transform.position.x - gameObject.transform.position.x < 2)
         {
             // Launch a raycast in the forward direction from where the player is facing.
             Vector2 direction = new Vector2(1, 0);
