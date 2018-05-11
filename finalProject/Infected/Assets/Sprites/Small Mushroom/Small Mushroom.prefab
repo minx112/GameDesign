@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 70777999511151094}
   - component: {fileID: 50195621139383696}
   - component: {fileID: 114190092766330100}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Small Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1416,7 +1416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   player: {fileID: 0}
-  moveSpeed: 9
+  moveSpeed: 6
   raycastMaxDistance: 1
 --- !u!212 &212089407783450004
 SpriteRenderer:

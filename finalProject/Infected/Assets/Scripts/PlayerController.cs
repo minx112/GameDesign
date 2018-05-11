@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
 	bool attack;
 	public int health;
 
-    public float raycastMaxDistance = 2f;
+    public float raycastMaxDistance = 1f;
     private const int ENEMY_LAYER = 10;
     private float originOffset = 2f;
 
@@ -204,7 +204,7 @@ public class PlayerController : MonoBehaviour
 
                 Debug.DrawRay(transform.position, hit.point, Color.red, 0.5f);
 
-                hit.collider.gameObject.GetComponent<enemyAI>().takeDamage(1, (rb.velocity.x < 0));
+                hit.collider.gameObject.GetComponent<MushroomAI>().takeDamage(1, (rb.velocity.x < 0));
             }
 
             return true;

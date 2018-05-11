@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4512293194352766}
   - component: {fileID: 212203757022213072}
-  - component: {fileID: 114517001953492046}
-  m_Layer: 0
+  - component: {fileID: 114011033959141900}
+  m_Layer: 10
   m_Name: big_mushroom_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4654916711353000}
   - component: {fileID: 212224054355799076}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: big_mushroom_arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 70659829204927894}
   - component: {fileID: 50412723015965174}
   - component: {fileID: 114251585333189012}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Big Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4763936679794356}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4708077380861494}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4328471995088106}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4329244043566320}
   - component: {fileID: 212247570696450064}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: big_mushroom_leg_front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,8 +134,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4622123592689966}
   - component: {fileID: 212184318141044834}
-  - component: {fileID: 114448166215354490}
-  m_Layer: 0
+  - component: {fileID: 114123147356999200}
+  m_Layer: 10
   m_Name: big_mushroom_top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4193856398377006}
   - component: {fileID: 212577312222926638}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: big_mushroom_leg_back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4474085380354982}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4031906203712574}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4625780623647216}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1617,6 +1617,36 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114011033959141900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1014151924354212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d8dc87df01e4958ab48153b19f0ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisplayedSprite: 0
+  Sprites:
+  - {fileID: 21300000, guid: 0776d2d8415513945af3de3e782fc137, type: 3}
+  - {fileID: 21300000, guid: 100f2c0b02e89e34bac51d26098b272f, type: 3}
+--- !u!114 &114123147356999200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1577544492699934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d8dc87df01e4958ab48153b19f0ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisplayedSprite: 0
+  Sprites:
+  - {fileID: 21300000, guid: 122edc66b5a77a64aba3fc1457559f12, type: 3}
+  - {fileID: 21300000, guid: 5341b529d2174684894e12b2cdbd5ca5, type: 3}
 --- !u!114 &114251585333189012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1632,36 +1662,6 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeed: 5
   raycastMaxDistance: 1
---- !u!114 &114448166215354490
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1577544492699934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87d8dc87df01e4958ab48153b19f0ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DisplayedSprite: 0
-  Sprites:
-  - {fileID: 21300000, guid: 122edc66b5a77a64aba3fc1457559f12, type: 3}
-  - {fileID: 21300000, guid: 5341b529d2174684894e12b2cdbd5ca5, type: 3}
---- !u!114 &114517001953492046
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1014151924354212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87d8dc87df01e4958ab48153b19f0ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DisplayedSprite: 0
-  Sprites:
-  - {fileID: 21300000, guid: 0776d2d8415513945af3de3e782fc137, type: 3}
-  - {fileID: 21300000, guid: 100f2c0b02e89e34bac51d26098b272f, type: 3}
 --- !u!114 &114746517312228642
 MonoBehaviour:
   m_ObjectHideFlags: 1

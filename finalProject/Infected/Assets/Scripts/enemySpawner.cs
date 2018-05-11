@@ -24,6 +24,7 @@ public class enemySpawner : MonoBehaviour {
 
 			whereToSpawn = new Vector2 (25f+player.position.x, transform.position.y);
 			Instantiate (enemy, whereToSpawn, Quaternion.identity);
+			enemy.layer = 10;
 		}
 	}
 }

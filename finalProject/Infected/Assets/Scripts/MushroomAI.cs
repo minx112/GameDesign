@@ -97,7 +97,7 @@ public class MushroomAI : MonoBehaviour {
         {
 
             // Raycast trigger
-            if (player.transform.position.x - gameObject.transform.position.x < 0 && player.transform.position.x - gameObject.transform.position.x > -2)
+			if (!facingRight && player.transform.position.x - gameObject.transform.position.x > -2)
             {
 
                 // Launch a raycast in the forward direction from where the player is facing.
@@ -120,7 +120,7 @@ public class MushroomAI : MonoBehaviour {
 
                 return true;
             }
-            else if (player.transform.position.x - gameObject.transform.position.x > 0 && player.transform.position.x - gameObject.transform.position.x < 2)
+			else if (facingRight && player.transform.position.x - gameObject.transform.position.x < 2)
             {
                 // Launch a raycast in the forward direction from where the player is facing.
                 Vector2 direction = new Vector2(1, 0);
