@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   player: {fileID: 4421864409643804, guid: 5dc2b096f6c5acf48a83cd3008c4e68f, type: 2}
-  moveSpeed: 7.5
+  moveSpeed: 5
   raycastMaxDistance: 1
 --- !u!212 &212526753427108620
 SpriteRenderer:
