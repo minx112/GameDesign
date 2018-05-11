@@ -25,6 +25,7 @@ public class ProgressBar : MonoBehaviour {
 	void Update () {
 		if (counter >= 27 && counter <= 66) {//26
 			Fill.color = Color.Lerp (red, blue, Mathf.PingPong (Time.time, 1.2083f));
+
 		} else if (counter >= 67 && counter <= 105) { //66
 			Fill.color = Color.Lerp (blue, yellow, Mathf.PingPong (Time.time, 1.2083f));
 
