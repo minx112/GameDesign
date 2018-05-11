@@ -23,16 +23,16 @@ public class ProgressBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (counter >= 26 && counter <= 66) {//26
+		if (counter >= 27 && counter <= 66) {//26
 			Fill.color = Color.Lerp (red, blue, Mathf.PingPong (Time.time, 1.2083f));
-		} else if (counter >= 66 && counter <= 105) { //66
+		} else if (counter >= 67 && counter <= 105) { //66
 			Fill.color = Color.Lerp (blue, yellow, Mathf.PingPong (Time.time, 1.2083f));
 
 		}
-		else if (counter >= 105 && counter <= 132) { //105
+		else if (counter >= 107 && counter <= 132) { //105
 			Fill.color = red;
 		}
-		else if (counter >= 132 && counter <= 202) { //132
+		else if (counter >= 133 && counter <= 202) { //132
 			Fill.color = Color.Lerp (red, cyan, Mathf.PingPong (Time.time, 1.2083f));
 
 		}
@@ -40,7 +40,7 @@ public class ProgressBar : MonoBehaviour {
 			Fill.color = red;
 
 		}
-		else if (counter >= 228 && counter <= 241) { 
+		else if (counter >= 229 && counter <= 241) { 
 			Fill.color = Color.Lerp (red, yellow, Mathf.PingPong (Time.time, 1.2083f));
 
 		}
@@ -48,7 +48,7 @@ public class ProgressBar : MonoBehaviour {
 			Fill.color = Color.Lerp (yellow, magenta, Mathf.PingPong (Time.time, 1.2083f));
 
 		}
-		else if (counter >= 332 && counter <= 360) { 
+		else if (counter >= 336 && counter <= 360) { 
 				Fill.color = red;
 
 		}
