@@ -1415,9 +1415,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  player: {fileID: 0}
+  player: {fileID: 1063729098162356, guid: dec49f2c056e3854dada5f8ba276b01e, type: 2}
   moveSpeed: 6
   raycastMaxDistance: 1
+  jumpHeight: 15
 --- !u!212 &212089407783450004
 SpriteRenderer:
   m_ObjectHideFlags: 1
