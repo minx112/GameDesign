@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 	private float hitCounter;
 	bool attack;
 	public int health;
+    public float iFrames;
 
     public float raycastMaxDistance = 1f;
     private const int ENEMY_LAYER = 10;
@@ -172,6 +173,11 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
 
+        if (iFrames > 0)
+        {
+            iFrames -= Time.deltaTime;
+        }
+
     }
 
     public RaycastHit2D CheckRaycast(Vector2 direction)
@@ -188,12 +194,14 @@ public class PlayerController : MonoBehaviour
         // Raycast button pressed
         if (keyE)
         {
-            // Launch a raycast in the forward direction from where the player is facing.
-            Vector2 direction = new Vector2(1, 0);
+            Vector2 direction;
 
             // If facing left, negative direction
             if (keyA || (rb.velocity.x < 0))
-                direction *= -1;
+                direction = new Vector2(-1, 0);
+            else
+                // Launch a raycast in the forward direction from where the player is facing.
+                direction = new Vector2(1, 0);
 
             // First target hit
             RaycastHit2D hit = CheckRaycast(direction);
@@ -217,7 +225,11 @@ public class PlayerController : MonoBehaviour
 
     public void takeDamage(int damage)
     {
-        health -= damage;
-        Debug.Log("Player health: " + health);
+        if (iFrames <= 0)
+        {
+            health -= damage;
+            Debug.Log("Player health: " + health);
+            iFrames = 2f;
+        }
     }
 }

@@ -22,8 +22,11 @@ public class enemySpawner : MonoBehaviour {
 		if (Time.time > nextSpawn) {
 			nextSpawn = Time.time + spawnRate;
 
-			whereToSpawn = new Vector2 (25f+player.position.x, transform.position.y);
-			Instantiate (enemy, whereToSpawn, Quaternion.identity);
+            if(Random.value < 0.75f)
+			    whereToSpawn = new Vector2 (25f+player.position.x, transform.position.y);
+            else
+                whereToSpawn = new Vector2(-25f + player.position.x, transform.position.y);
+            Instantiate (enemy, whereToSpawn, Quaternion.identity);
 			enemy.layer = 10;
 		}
 	}
