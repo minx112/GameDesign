@@ -17,20 +17,17 @@ public class HUD : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();//Components
 
 	}
-	void Update() {
+	void Update() {//void
 		HeartUI.sprite = HeartsSprites[player.health];
 		if (player.health <= 0) {
 			StartCoroutine (Fading ());
-			//Application.LoadLevel(SceneManager.GetActiveScene ().buildIndex + 1);
+			Application.LoadLevel(SceneManager.GetActiveScene ().buildIndex - 1);
 		}
-		//Debug.Log("Player Health HUD" +  player.health); // player.health not pointing to it
 	}
 	IEnumerator Fading() {
-		anim.SetBool ("Fade", true);
-		yield return new WaitUntil (() => black.color.a == 1);
-		Debug.Log("fade function" +  player.health); // player.health not pointing to it
-
-		Application.LoadLevel(SceneManager.GetActiveScene ().buildIndex + 1);
-		//SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
+		float fadeTime = GameObject.Find("Player").GetComponent<Fading>().BeginFade(1);
+		Debug.Log("fade function" +  fadeTime); 
+		yield return new WaitForSeconds (fadeTime);// wont wait
+		//Application.LoadLevel(SceneManager.GetActiveScene ().buildIndex - 1);
 	}
 }
