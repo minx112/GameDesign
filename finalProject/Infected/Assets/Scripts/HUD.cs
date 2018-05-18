@@ -29,9 +29,9 @@ public class HUD : MonoBehaviour {
 	IEnumerator Fading() {
 		float fadeTime = gameObject.GetComponent<Fading>().BeginFade(1);
 		Debug.Log("fade function" +  fadeTime+ " health" + player.health); 
-		yield return new WaitForSeconds (fadeTime);// wont wait
+		yield return new WaitForSeconds (0.05f);// wont wait
 		//Application.LoadLevel(SceneManager.GetActiveScene ().buildIndex + 1);
-		Invoke("GameOver", fadeTime);
+		Invoke("GameOver", 0.05f);
 	}
 
 	void GameOver(){
