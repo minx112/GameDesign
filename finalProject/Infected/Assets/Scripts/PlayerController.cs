@@ -11,14 +11,13 @@ public class PlayerController : MonoBehaviour
     private double jumpDelay;
     private double jumpDelayTime = 0.1;
     private bool doubleJumped;
+    private bool facingRight;
 
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask whatIsGround;
     private bool grounded;
 
-	public GameObject hitCheck;
-	public float hitCheckRadius;
 	public LayerMask whatIsEnemy;
 
 	public float attackDelay;
@@ -28,9 +27,13 @@ public class PlayerController : MonoBehaviour
 	bool attack;
 	public int health;
 
+    public Transform laserPoint;
     public float raycastMaxDistance = 1f;
     private const int ENEMY_LAYER = 10;
     private float originOffset = 2f;
+    public LineRenderer laserLine;
+    private double laserLineDelay;
+    private double laserLineDelayTime = 0.25;
 
     SpriteRenderer m_SpriteRenderer;
 
@@ -47,6 +50,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool keyQ;
     [HideInInspector] public bool keyHoldQ;
     [HideInInspector] public bool keySpace;
+    [HideInInspector] public bool keyMouseClick;
 
     // Use this for initialization
     void Start ()
@@ -60,14 +64,13 @@ public class PlayerController : MonoBehaviour
         //get rigidbody component
         rb = GetComponent<Rigidbody2D>();
 
-        //reset double jumps
-        doubleJumped = false;
+        //set facing right
+        facingRight = true;
 
-		//Fetch the SpriteRenderer from the GameObject
-		m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        //Fetch the SpriteRenderer from the GameObject
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
 
 		attack = false;
-		hitCheck.SetActive (false);
 	}
 
     private void FixedUpdate()
@@ -90,6 +93,7 @@ public class PlayerController : MonoBehaviour
         keyQ = Input.GetKeyDown(KeyCode.Q);
         keyHoldQ = Input.GetKey(KeyCode.Q);
         keySpace = Input.GetKeyDown(KeyCode.Space);
+        keyMouseClick = Input.GetMouseButtonDown(0);
 
         // set variables for animator
         anim.SetBool("Grounded", grounded);
@@ -104,19 +108,12 @@ public class PlayerController : MonoBehaviour
         // if grounded
         if (grounded)
         {
-            // doubleJumped = false;
-            // anim.SetBool("Double Jumped", false);
             if (jumpDelay <= 0) anim.SetBool("Jumped", false);
         }
 
         // jumping
         if (keySpace && grounded)
         {
-            // if (!grounded && !doubleJumped)
-            // {
-            //     doubleJumped = true;
-            //     anim.SetBool("Double Jumped", true);
-            // }
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
             anim.SetBool("Jumped", true);
             jumpDelay = jumpDelayTime;
@@ -141,23 +138,6 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
-		if (!attack && keyE)
-		{
-			//attack animation
-		}
-/*
-		if (attack && attackCounter > 0) 
-		{
-			attackCounter -= Time.deltaTime;
-		}
-
-		if (attack && attackCounter < 0)
-		{
-			attack = false;
-			m_SpriteRenderer.color = new Color (51, 152, 0);
-		}
-		*/
-
         // set float 'Speed' for animator
         anim.SetFloat("Horizontal Speed", Mathf.Abs(rb.velocity.x));
         anim.SetFloat("Vertical Speed", rb.velocity.y);
@@ -166,10 +146,30 @@ public class PlayerController : MonoBehaviour
         if (keyD || (rb.velocity.x > 0))
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
+            facingRight = true;
         }
         else if (keyA || (rb.velocity.x < 0))
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
+            facingRight = false;
+        }
+
+        // eye laser animation and timer
+        if (laserLine.enabled)
+        {
+            laserLine.SetPosition(0, laserPoint.position);
+        }
+
+        if (laserLineDelay > 0)
+        {
+            laserLineDelay -= Time.deltaTime;
+
+            if (laserLineDelay < 0) laserLineDelay = 0;
+        }
+
+        if (laserLineDelay <= 0)
+        {
+            laserLine.enabled = false;
         }
 
     }
@@ -186,25 +186,41 @@ public class PlayerController : MonoBehaviour
     private bool RaycastCheckUpdate()
     {
         // Raycast button pressed
-        if (keyE)
+        if (keyE || keyMouseClick)
         {
             // Launch a raycast in the forward direction from where the player is facing.
-            Vector2 direction = new Vector2(1, 0);
+            Vector2 direction;
 
-            // If facing left, negative direction
-            if (keyA || (rb.velocity.x < 0))
-                direction *= -1;
+            // If facing right
+            if (facingRight)
+                direction = new Vector2(1, 0);
+            else
+                direction = new Vector2(-1, 0);
 
             // First target hit
             RaycastHit2D hit = CheckRaycast(direction);
 
             if (hit.collider)
             {
-                Debug.Log("Hit the collidable object " + hit.collider.name);
+                // transform of the enemy being hit
+                Transform targetTransform = hit.transform;
+                // hitPosition.position = new Vector3(hit.transform.position.x, hit.transform.position.y - 3, hit.transform.position.z);
 
-                Debug.DrawRay(transform.position, hit.point, Color.red, 0.5f);
+                // position of the target's feet
+                // used for aiming the laser and placing the resulting ash pile
+                Vector3 targetGroundPos = targetTransform.position - laserPoint.position;
 
+                // position to fire laser at
+                Vector3 laserTargetPos = targetGroundPos + new Vector3(0, 3, 0);
+
+                // deal damage to target
                 hit.collider.gameObject.GetComponent<MushroomAI>().takeDamage(1, (rb.velocity.x < 0));
+
+                // laser effects and timer
+                laserLine.enabled = true;
+                laserLine.SetPosition(0, laserPoint.position);
+                laserLine.SetPosition(1, laserPoint.position + laserTargetPos);
+                laserLineDelay = laserLineDelayTime;
             }
 
             return true;

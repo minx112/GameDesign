@@ -1659,9 +1659,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8e9dda14b6f34517a0d598d3320a902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   sortingOrder: 0
   applySpriterZOrder: 0
 --- !u!114 &114778782888630390
+=======
+  health: 1
+  player: {fileID: 0}
+  moveSpeed: 5
+  raycastMaxDistance: 1
+  ashPileSprite: {fileID: 1334329850127944, guid: 6b74a65f15c237f4c8de6c427f4f3123,
+    type: 2}
+--- !u!114 &114746517312228642
+>>>>>>> baileyBranch
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
