@@ -18,16 +18,23 @@ public class HUD : MonoBehaviour {
 
 	}
 	void Update() {//void
-		HeartUI.sprite = HeartsSprites[player.health];
+		if (player.health >= 0) {
+			HeartUI.sprite = HeartsSprites [player.health];
+		}
 		if (player.health <= 0) {
 			StartCoroutine (Fading ());
-			Application.LoadLevel(SceneManager.GetActiveScene ().buildIndex + 1);
+			//Application.LoadLevel(SceneManager.GetActiveScene ().buildIndex + 1);
 		}
 	}
 	IEnumerator Fading() {
-		float fadeTime = GameObject.Find("Player").GetComponent<Fading>().BeginFade(1);
-		Debug.Log("fade function" +  fadeTime); 
+		float fadeTime = gameObject.GetComponent<Fading>().BeginFade(1);
+		Debug.Log("fade function" +  fadeTime+ " health" + player.health); 
 		yield return new WaitForSeconds (fadeTime);// wont wait
-		//Application.LoadLevel(SceneManager.GetActiveScene ().buildIndex - 1);
+		//Application.LoadLevel(SceneManager.GetActiveScene ().buildIndex + 1);
+		Invoke("GameOver", fadeTime);
+	}
+
+	void GameOver(){
+		Application.LoadLevel(SceneManager.GetActiveScene ().buildIndex + 1);
 	}
 }

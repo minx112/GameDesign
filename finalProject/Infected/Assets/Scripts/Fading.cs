@@ -18,7 +18,7 @@ public class Fading : MonoBehaviour {
 		GUI.color = new Color (GUI.color.r, GUI.color.g, GUI.color.b, alpha);
 		GUI.depth = drawDepth;
 		GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height), fadeOutTexture);
-
+		Debug.Log ("alpha: " + alpha);
 	}
 	public float BeginFade(int direction) {
 		fadeDir = direction;
@@ -26,6 +26,7 @@ public class Fading : MonoBehaviour {
 	}
 	void OnEnable() {
 		SceneManager.sceneLoaded += OnSceneLoaded;
+		Debug.Log ("OnEnable called");
 	}
 	void OnDisable() {
 		SceneManager.sceneLoaded -= OnSceneLoaded;
