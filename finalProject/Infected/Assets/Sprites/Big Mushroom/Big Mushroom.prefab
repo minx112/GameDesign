@@ -1662,6 +1662,8 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeed: 5
   raycastMaxDistance: 1
+  ashPileSprite: {fileID: 1334329850127944, guid: 6b74a65f15c237f4c8de6c427f4f3123,
+    type: 2}
 --- !u!114 &114746517312228642
 MonoBehaviour:
   m_ObjectHideFlags: 1
