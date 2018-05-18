@@ -5973,6 +5973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1105822904287852, guid: 9f9f36f4ba553c44382ce19a554f6915, type: 2}
+  enemy2: {fileID: 1227927054084200, guid: b63e22a90123e6240903c9cab8eef124, type: 2}
   spawnRate: 3.31034
   player: {fileID: 1256699630}
 --- !u!1 &1218140527
