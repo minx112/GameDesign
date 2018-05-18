@@ -18,8 +18,6 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
     private bool grounded;
 
-	public GameObject hitCheck;
-	public float hitCheckRadius;
 	public LayerMask whatIsEnemy;
 
 	public float attackDelay;
@@ -73,7 +71,6 @@ public class PlayerController : MonoBehaviour
 		m_SpriteRenderer = GetComponent<SpriteRenderer>();
 
 		attack = false;
-		hitCheck.SetActive (false);
 	}
 
     private void FixedUpdate()
