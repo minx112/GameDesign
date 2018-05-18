@@ -12,9 +12,12 @@ public class HUD : MonoBehaviour {
 	private PlayerController player;
 	public Image black;
 	public Animator anim;
+	public static Transform playerTransform;
+
 
 	void Start() {
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();//Components
+		playerTransform = GameObject.FindWithTag ("Player").GetComponent(Transform);
 
 	}
 	void Update() {//void
@@ -24,6 +27,11 @@ public class HUD : MonoBehaviour {
 		if (player.health <= 0 || GameObject.FindGameObjectWithTag("Player").transform.position.y < -10) {
 			StartCoroutine (Fading ());
 			//Application.LoadLevel(SceneManager.GetActiveScene ().buildIndex + 1);
+		}
+
+		if(playerTransform == Transform(118,0,0)) {//Grant your people need you
+			Win();
+
 		}
 	}
 	IEnumerator Fading() {
@@ -36,5 +44,9 @@ public class HUD : MonoBehaviour {
 
 	void GameOver(){
 		Application.LoadLevel(SceneManager.GetActiveScene ().buildIndex + 1);
+	}
+	void Win() {
+		Application.LoadLevel(SceneManager.GetActiveScene ().buildIndex + 2);
+
 	}
 }
