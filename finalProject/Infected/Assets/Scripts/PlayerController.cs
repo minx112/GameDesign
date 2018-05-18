@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
     public LineRenderer laserLine;
     private double laserLineDelay;
     private double laserLineDelayTime = 0.25;
-    public Sprite ashPileSprite;
 
     SpriteRenderer m_SpriteRenderer;
 
@@ -139,23 +138,6 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
-		if (!attack && keyE)
-		{
-			//attack animation
-		}
-/*
-		if (attack && attackCounter > 0) 
-		{
-			attackCounter -= Time.deltaTime;
-		}
-
-		if (attack && attackCounter < 0)
-		{
-			attack = false;
-			m_SpriteRenderer.color = new Color (51, 152, 0);
-		}
-		*/
-
         // set float 'Speed' for animator
         anim.SetFloat("Horizontal Speed", Mathf.Abs(rb.velocity.x));
         anim.SetFloat("Vertical Speed", rb.velocity.y);
@@ -230,9 +212,6 @@ public class PlayerController : MonoBehaviour
 
                 // position to fire laser at
                 Vector3 laserTargetPos = targetGroundPos + new Vector3(0, 3, 0);
-
-                //Debug.Log("Hit the collidable object " + hit.collider.name);
-                //Debug.DrawRay(laserPoint.position, laserTargetPos, Color.red, 0.5f);
 
                 // deal damage to target
                 hit.collider.gameObject.GetComponent<MushroomAI>().takeDamage(1, (rb.velocity.x < 0));
