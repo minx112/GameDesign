@@ -98,7 +98,7 @@ public class MushroomAI : MonoBehaviour {
             
         else
         {
-            if(isLeft)
+            if(player.transform.position.x - gameObject.transform.position.x > 0)
                 rb.velocity = new Vector2(-100, rb.velocity.y);
             else
                 rb.velocity = new Vector2(100, rb.velocity.y);
