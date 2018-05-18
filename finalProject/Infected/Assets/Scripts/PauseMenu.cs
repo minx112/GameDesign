@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour {
 
 	public static bool gameIsPaused = false;
 	public GameObject pauseMenuUI;
+	public GameObject cam;
 	// Use this for initialization
 	void Start () {
 		pauseMenuUI.SetActive (false);
@@ -27,6 +28,8 @@ public class PauseMenu : MonoBehaviour {
 		pauseMenuUI.SetActive (false);
 		Time.timeScale = 1f;
 		gameIsPaused = false;
+		cam.GetComponent<AudioSource> ().UnPause ();
+
 		//sound
 	}
 
@@ -34,6 +37,7 @@ public class PauseMenu : MonoBehaviour {
 		pauseMenuUI.SetActive (true);
 		Time.timeScale = 0f;
 		gameIsPaused = true;
+		cam.GetComponent<AudioSource> ().Pause ();
 		//sound
 	}
 	public void LoadMenu() {

@@ -61,6 +61,7 @@ public class ProgressBar : MonoBehaviour {
 				Fill.color = red;
 
 		}
+			
 
 	}
 	void Prog() {
