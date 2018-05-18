@@ -22,6 +22,8 @@ public class MushroomAI : MonoBehaviour {
     private float jumpWait = 3f;
     public float jumpHeight;
 
+    public GameObject ashPileSprite;
+
     // Use this for initialization
     void Start () {
 
@@ -89,7 +91,11 @@ public class MushroomAI : MonoBehaviour {
         health -= damage;
 
         if (health <= 0)
+        {
+            Instantiate(ashPileSprite, (gameObject.transform.position + new Vector3(0, 0.5f, 0)), Quaternion.identity);
             Destroy(gameObject);
+        }
+            
         else
         {
             if(isLeft)

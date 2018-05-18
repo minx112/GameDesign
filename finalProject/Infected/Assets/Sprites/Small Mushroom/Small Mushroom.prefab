@@ -1419,6 +1419,8 @@ MonoBehaviour:
   moveSpeed: 6
   raycastMaxDistance: 1
   jumpHeight: 0
+  ashPileSprite: {fileID: 1859598651152110, guid: 8ae688d8dce996743bdb9ac7f4b5e6b4,
+    type: 2}
 --- !u!212 &212089407783450004
 SpriteRenderer:
   m_ObjectHideFlags: 1
