@@ -14,7 +14,7 @@ Try to reach the end as fast as possible!
 Controls
 ---------
 WASD to move
-E to attack
+E or Left Click to attack
 Space to jump
 
 Credits
