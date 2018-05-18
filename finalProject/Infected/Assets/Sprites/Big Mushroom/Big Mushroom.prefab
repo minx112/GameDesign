@@ -1632,6 +1632,7 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeed: 5
   raycastMaxDistance: 1
+  jumpHeight: 0
 --- !u!114 &114498562934781902
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -21,7 +21,7 @@ public class HUD : MonoBehaviour {
 		if (player.health >= 0) {
 			HeartUI.sprite = HeartsSprites [player.health];
 		}
-		if (player.health <= 0) {
+		if (player.health <= 0 || GameObject.FindGameObjectWithTag("Player").transform.position.y < -10) {
 			StartCoroutine (Fading ());
 			//Application.LoadLevel(SceneManager.GetActiveScene ().buildIndex + 1);
 		}

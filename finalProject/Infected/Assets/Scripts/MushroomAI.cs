@@ -19,6 +19,8 @@ public class MushroomAI : MonoBehaviour {
     private const int PLAYER_LAYER = 9;
     private float originOffset = 1f;
 
+    private float jumpWait = 3f;
+    public float jumpHeight;
 
     // Use this for initialization
     void Start () {
@@ -63,6 +65,21 @@ public class MushroomAI : MonoBehaviour {
         else
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+
+        if (player.transform.position.y - 1 > gameObject.transform.position.y && jumpWait <= 0 && player.transform.position.x - gameObject.transform.position.x >= -5 && player.transform.position.x - gameObject.transform.position.x <= 5)
+        {
+            jumpWait = 3f;
+            jumpWait -= Random.Range(0, 3);
+        }
+
+        if (jumpWait > 0)
+        {
+            jumpWait -= Time.deltaTime;
+            if (jumpWait <= 0)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+            }
         }
 
     }

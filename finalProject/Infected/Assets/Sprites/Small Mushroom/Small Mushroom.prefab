@@ -1418,6 +1418,7 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeed: 6
   raycastMaxDistance: 1
+  jumpHeight: 0
 --- !u!212 &212089407783450004
 SpriteRenderer:
   m_ObjectHideFlags: 1
